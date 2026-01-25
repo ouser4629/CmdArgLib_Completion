@@ -1,7 +1,7 @@
 ## CmdArgLib_Completion
 
-This repositiory provides three executable programs built using
-the [Command Argument Library](https://github.com/ouser4629/cmd-arg-lib.git). The
+This repositiory provides three executable programs built
+using [Command Argument Library](https://github.com/ouser4629/cmd-arg-lib.git). The
 repository has a dual purpose.
 
 * Provide examples of how to use the `CommandAction` macro.
