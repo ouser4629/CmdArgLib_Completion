@@ -1,9 +1,14 @@
 ## CmdArgLib_Completion Example
 
-This repository contains three example programs that offer fish and zsh completion scripts.
+This repositiory has three examples that use 
+the [Command Argument Library](https://github.com/ouser4629/cmd-arg-lib.git). The
+examples have a dual purpose.
 
-The first two are examples using the`CommandAction` macro. The first uses`SimpleCommand` and 
-the second uses `StatefulCommand<T>`. The third example uses the `MainFunction` macro.  
+* Provide examples of how to use the `CommandAction` macro.
+* Provide examples of how to generate fish and zsh completion scripts.
+
+The `cf-ca1-simple` and `f-ca2-stateful` use the `CommandAction` macro.
+These, along with `cf-print`, generate fish and zsh completion scripts.
 
 ## Installation
 
