@@ -2,6 +2,9 @@
 
 This repository contains three example programs that offer fish and zsh completion scripts.
 
+The first two are examples using the`CommandAction` macro. The first uses`SimpleCommand` and 
+the second uses `StatefulCommand<T>`. The third example uses the `MainFunction` macro.  
+
 ## Installation
 
 Download and install cal-install.
