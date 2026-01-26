@@ -15,7 +15,7 @@
 import CmdArgLib
 import Foundation
 
-public enum PhraseFormat: String, CaseIterable, CustomStringConvertible, RawRepresentable, BasicParameterType {
+public enum PhraseFormat: String, BasicParameterEnum {
     case white, yellow, underlined
 }
 

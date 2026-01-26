@@ -15,9 +15,9 @@
 import CmdArgLib
 import CmdArgLibMacros
 
-public enum Name: String, CaseIterable, CustomStringConvertible, BasicParameterType {case manny, moe, jack }
-public enum Vname: String, CaseIterable, CustomStringConvertible, BasicParameterType {case manny_v, moe_v, jack_v }
-public enum Fruit: String, CaseIterable, CustomStringConvertible, BasicParameterType {case apple, banana, orange }
+public enum Name: String, BasicParameterEnum {case manny, moe, jack }
+public enum Vname: String, BasicParameterEnum {case manny_v, moe_v, jack_v }
+public enum Fruit: String, BasicParameterEnum {case apple, banana, orange }
 
 typealias Count = Int
 typealias Text = String

@@ -17,17 +17,10 @@ import CmdArgLibMacros
 import Foundation
 
 
-enum Cheese: String, CaseIterable, CustomStringConvertible, BasicParameterType {case comté, gouda, roncal}
-enum Bread: String, CaseIterable, CustomStringConvertible, BasicParameterType {case baguette, multigrain, sourdough }
-enum Wine: String, CaseIterable, CustomStringConvertible, BasicParameterType {case bordeaux , rioja, sancerre }
-enum People: String, CaseIterable, CustomStringConvertible, BasicParameterType {case manny , moe, jack }
-
-
-extension CaseIterable where AllCases.Element: CustomStringConvertible {
-    static var oneOf: String { "One of: \(Self.casesJoinedWith("or"))" }
-}
-
-// public enum Person: String, CaseIterable, CustomStringConvertible, BasicParameterType {case Manny, Moe, Jack}
+enum Cheese: String, BasicParameterEnum {case comté, gouda, roncal}
+enum Bread: String, BasicParameterEnum {case baguette, multigrain, sourdough }
+enum Wine: String, BasicParameterEnum {case bordeaux , rioja, sancerre }
+enum People: String, BasicParameterEnum {case manny , moe, jack }
 
 typealias Table = Int
 typealias Text = String
@@ -64,8 +57,8 @@ struct Food {
         .text("\nOPTIONS"),
         .parameter("table", "The table number"),
         .parameter("wines", "Wines (\(Wine.casesJoinedWith("and")))", .list(Wine.cases)),
-        .parameter("cheese", "Cheese. \(Cheese.oneOf) (can be repeated)", .list(Cheese.cases)),
-        .parameter("bread", "The bread. \(Bread.oneOf) ", .list(Bread.cases)),
+        .parameter("cheese", "Cheese. \(Cheese.oneOfCapitalized) (can be repeated)", .list(Cheese.cases)),
+        .parameter("bread", "The bread. \(Bread.oneOfCapitalized) ", .list(Bread.cases)),
         .parameter("help", "Show this help message"),
     ]
 }

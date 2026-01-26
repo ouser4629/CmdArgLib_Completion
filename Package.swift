@@ -18,10 +18,10 @@
 import PackageDescription
 
 // --- Remote
-//let cmdArgLib = "cmd-arg-lib"
+let cmdArgLib = "cmd-arg-lib"
 
 // --- Local - cmd-arg-lib
-let cmdArgLib = "cmd-arg-lib"
+//let cmdArgLib = "cmd-arg-lib"
 
 /// --- Local - source
 //let cmdArgLib = "Cmd_Arg_Lib"
@@ -36,7 +36,7 @@ let package = Package(
     ],
     dependencies: [
         // Remote
-        .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.3.7")
+        .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.3.8")
         // Local
         // .package(path: "../../\(cmdArgLib)"),
     ],
