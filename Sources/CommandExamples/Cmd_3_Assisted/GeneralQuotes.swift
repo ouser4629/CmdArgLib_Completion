@@ -34,7 +34,7 @@ struct GeneralQuotes {
         commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
     ) {
-        var newFormatter = state.first!
+        var newFormatter = state.first ?? PhraseFormatter()
         if lower || upper {
             newFormatter = PhraseFormatter(upper: upper, lower: lower, phraseFormat: newFormatter.phraseFormat)
         }

@@ -42,7 +42,7 @@ struct Main {
 
     static let helpElements: [ShowElement] = [
         .text("DESCRIPTION\n", "Demonstrate CLI command completion with a stateful hierarchical command."),
-        .synopsis("\nUSAGE\n", trailer: "subcommand"),
+        .customSynopsis("\nUSAGE\n", chunks: ["[-ht]", "[state-subcommand]", "<other-subcommand>"]),
         .text("\nMETA-OPTIONS"),
         .parameter("generateFishCompletionScript","Print a fish completion script"),
         .parameter("generateZshCompletionScript","Print a zsh completion script"),
