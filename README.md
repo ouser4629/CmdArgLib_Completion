@@ -14,7 +14,7 @@ These, along with `cf-print`, generate fish and zsh completion scripts.
 
 ## Installation
 
-Download and install cal-install.
+Download and install [cal-install](https://github.com/ouser4629/CAL_Install.git).
 
 Go to some folder, say Tme, and install the programs
 
