@@ -20,8 +20,9 @@ Go to some folder, say Tme, and install the programs
 > cd Temp
 > git clone https://github.com/ouser4629/CmdArgLib_Completion.git
 > cd CmdArgLib_Completion
-> swift build -c release
-> ca-install # assumes the default completion set up
+CmdArgLib_Completion> swift build -c release
+CmdArgLib_Completion> cal-install -s fish -s zsh
+/Users/po/.local/bin/__cal_fish_completion_tool
 cf-ca1-simple
     installed "cf-ca1-simple" in /Users/po/.local/bin
     installed "cf-ca1-simple.fish" in /Users/po/.config/fish/completions
@@ -30,6 +31,10 @@ cf-ca2-stateful
     installed "cf-ca2-stateful" in /Users/po/.local/bin
     installed "cf-ca2-stateful.fish" in /Users/po/.config/fish/completions
     installed "_cf-ca2-stateful" in /Users/po/.config/zsh/completions
+cf-ca3-assisted
+    installed "cf-ca3-assisted" in /Users/po/.local/bin
+    installed "cf-ca3-assisted.fish" in /Users/po/.config/fish/completions
+    installed "_cf-ca3-assisted" in /Users/po/.config/zsh/completions
 cf-print
     installed "cf-print" in /Users/po/.local/bin
     installed "cf-print.fish" in /Users/po/.config/fish/completions
@@ -38,16 +43,83 @@ cf-print
 
 ## Usage
 
-After installation, cd to a new terminal and run the programs. E.g.,
+After installation, cd to a new terminal (not necessary with macOS) and run the programs. E.g.,
+
+### Without adding state
 
 ```
-> cd
-> cf-print -c 1 --name jack 
-count:  1
-names:  [jack]
-vanmes:  []
-file:  default_file.txt
-directory default_directory/
-path default_path
-fruit:  apple
+> cf-ca3-assisted -h
+DESCRIPTION
+  Demonstrate CLI command completion with a stateful hierarchical command.
+
+USAGE
+  cf-ca3-assisted [-ht] [state <state-options>] <other-subcommand>
+
+META-OPTIONS
+  --generate-fish-completion-script   Print a fish completion script.
+  --generate-zsh-completion-script    Print a zsh completion script.
+  -t                                  Show a hierarchical list of commands.
+  -h/--help                           Show this help screen.
+
+SUBCOMMANDS
+  state     Provide state for subsequent commands.
+  quotes    Print quotes by famous people.
+  food      Print food items passed in from the command line.
+  files     Print file names passed in from the command line.
 ...
+
+```
+> cf-ca3-assisted -ht
+cf-ca3-assisted [state]
+├── quotes
+│   ├── general - Print quotes about life in general.
+│   └── computing - Print quotes about computing.
+├── food - Print food items passed in from the command line.
+└── files - Print file names passed in from the command line.
+```
+
+```
+> cf-ca3-assisted quotes general 1
+Quote
+  Well done is better than well said. - Benjamin Franklin
+```
+
+### Adding state using the assistant command
+
+```
+> cf-ca3-assisted -h
+DESCRIPTION
+  Demonstrate CLI command completion with a stateful hierarchical command.
+
+USAGE
+  cf-ca3-assisted [-ht] [state <state-options>] <other-subcommand>
+
+META-OPTIONS
+  --generate-fish-completion-script   Print a fish completion script.
+  --generate-zsh-completion-script    Print a zsh completion script.
+  -t                                  Show a hierarchical list of commands.
+  -h/--help                           Show this help screen.
+
+SUBCOMMANDS
+  state     Provide state for subsequent commands.
+  quotes    Print quotes by famous people.
+  food      Print food items passed in from the command line.
+  files     Print file names passed in from the command line.
+``` 
+  
+```
+> cf-ca3-assisted state -ht
+cf-ca3-assisted state
+├── quotes
+│   ├── general - Print quotes about life in general.
+│   └── computing - Print quotes about computing.
+├── food - Print food items passed in from the command line.
+└── files - Print file names passed in from the command line.
+```
+
+
+```
+> cf-ca3-assisted state -u quotes general 1
+Quote
+  WHERE ALL THINK ALIKE, NO ONE THINKS VERY MUCH. - WALTER LIPPMANN
+```
