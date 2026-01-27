@@ -32,6 +32,7 @@ let package = Package(
     products: [
         .executable(name: "cf-ca1-simple", targets: ["Cmd_1_Simple"]),
         .executable(name: "cf-ca2-stateful", targets: ["Cmd_2_Stateful"]),
+        .executable(name: "cf-ca3-assisted", targets: ["Cmd_3_Assisted"]),
         .executable(name: "cf-print", targets: ["CfPrint"]),
     ],
     dependencies: [
@@ -64,6 +65,14 @@ let package = Package(
                 .product(name: "CmdArgLibMacros", package: cmdArgLib),
             ],
             path: "Sources/CommandExamples/Cmd_2_Stateful"),
+        .executableTarget(
+            name: "Cmd_3_Assisted",
+            dependencies: [
+                "LocalHelpers",
+                .product(name: "CmdArgLib", package: cmdArgLib),
+                .product(name: "CmdArgLibMacros", package: cmdArgLib),
+            ],
+            path: "Sources/CommandExamples/Cmd_3_Assisted"),
         .executableTarget(
             name: "CfPrint",
             dependencies: [
