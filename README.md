@@ -86,21 +86,22 @@ cf-ca3-assisted [state]
 ### State level
 
 ```
-> cf-ca3-assisted -h
+> cf-ca3-assisted state -h
 DESCRIPTION
-  Demonstrate CLI command completion with a stateful hierarchical command.
+  Provide state for subcommands.
 
 USAGE
-  cf-ca3-assisted [-ht] [state <state-options>] <other-subcommand>
+  cf-ca3-assisted state [-ulth] [-f <phrase_format>] <subcommand>
 
-META-OPTIONS
-  --generate-fish-completion-script   Print a fish completion script.
-  --generate-zsh-completion-script    Print a zsh completion script.
-  -t                                  Show a hierarchical list of commands.
-  -h/--help                           Show this help screen.
+OPTIONS
+  -f/--format <phrase_format>  A text format ("red", "yellow" or "underlined") to use when
+                               displaying quotes.
+  -u/--upper                   Show the uppercase version of the quotes.
+  -t                           Show a hierarchical list of commands.
+  -l/--lower                   Show the lowercase version of the quotes.
+  -h/--help                    Show this help screen.
 
 SUBCOMMANDS
-  state     Provide state for subsequent commands.
   quotes    Print quotes by famous people.
   food      Print food items passed in from the command line.
   files     Print file names passed in from the command line.
