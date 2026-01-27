@@ -55,7 +55,7 @@ struct Food {
 
     private static let helpElements: [ShowElement] = [
         .text("DESCRIPTION\n", "Print values passed in from the command line."),
-        .customSynopsis("\nUSAGE\n", chunkLists: [["[<options>]", "<fruit>"]]),
+        .customSynopsis("\nUSAGE\n", chunkLists: [["[<options>]", "<people>"]]),
         .text("\nARGUMENTS"),
         .parameter("people","Some people (\(People.casesJoinedWith("and")))", .list(People.cases)),
         .text("\nOPTIONS"),

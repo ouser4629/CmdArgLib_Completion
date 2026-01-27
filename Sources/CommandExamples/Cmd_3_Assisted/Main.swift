@@ -21,7 +21,7 @@ import LocalHelpers
 struct Main {
 
     private static let topLevel = StatefulCommand<PhraseFormatter>(
-        name: "cf-ca3-stateful",
+        name: "cf-ca3-assisted",
         synopsis: "Demonstrate CLI completion.",
         action: action,
         config: actionConfig(),
@@ -29,10 +29,10 @@ struct Main {
     )
 
     @CommandAction
-    private static func cfCa2Stateful(
-        generateFishCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .fish, name: "cf-ca3-stateful", showElements: helpElements),
-        generateZshCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .zsh, name: "cf-ca3-stateful", showElements: helpElements),
-        t tree: MetaFlag = MetaFlag(treeFor: "cf-ca3-stateful", synopsis: "Cmd_3 - Stateful commands with assistant."),
+    private static func cfCa3Stateful(
+        generateFishCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .fish, name: "cf-ca3-assisted", showElements: helpElements),
+        generateZshCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .zsh, name: "cf-ca3-assisted", showElements: helpElements),
+        t tree: MetaFlag = MetaFlag(treeFor: "cf-ca3-assisted", synopsis: "Cmd_3 - Stateful commands with assistant."),
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
         commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) -> [PhraseFormatter]
@@ -40,14 +40,9 @@ struct Main {
         return state
     }
 
-    
     static let helpElements: [ShowElement] = [
         .text("DESCRIPTION\n", "Demonstrate CLI command completion with a stateful hierarchical command."),
         .synopsis("\nUSAGE\n", trailer: "subcommand"),
-        .text("\nOPTIONS"),
-        .parameter("format","A text format (\(PhraseFormat.casesJoinedWith("or"))) to use when displaying quotes", .list(PhraseFormat.cases)),
-        .parameter("upper", "Show the uppercase version of the quotes"),
-        .parameter("lower", "Show the lowercase version of the quotes"),
         .text("\nMETA-OPTIONS"),
         .parameter("generateFishCompletionScript","Print a fish completion script"),
         .parameter("generateZshCompletionScript","Print a zsh completion script"),
@@ -69,16 +64,15 @@ struct Main {
 struct Assistant {
 
     static let command = StatefulCommand<PhraseFormatter>(
-        name: "cf-ca-stateful",
+        name: "state",
         synopsis: "Provide state for sibling commands.",
         action: action,
         config: actionConfig(),
-        children: [Quotes.command, Food.command, Files.command],
         isAssistantCommand: true
     )
 
     @CommandAction
-    private static func cfCa3Stateful(
+    private static func work(
         u__upper upper: Flag,
         l__lower lower: Flag,
         f__format format: PhraseFormat?,

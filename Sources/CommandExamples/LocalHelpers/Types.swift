@@ -16,7 +16,7 @@ import CmdArgLib
 import Foundation
 
 public enum PhraseFormat: String, BasicParameterEnum {
-    case white, yellow, underlined
+    case red, yellow, underlined
 }
 
 public struct PhraseFormatter: Sendable {
@@ -43,7 +43,7 @@ public struct PhraseFormatter: Sendable {
             var startCode = 97 // white
             var endCode = 0 // For colors
             switch phraseFormat {
-            case .white: startCode = 97
+            case .red: startCode = 31
             case .yellow: startCode = 33
             case .underlined: startCode = 4; endCode = 24
             }
