@@ -42,7 +42,7 @@ struct Main {
 
     static let helpElements: [ShowElement] = [
         .text("DESCRIPTION\n", "Demonstrate CLI command completion with a stateful hierarchical command."),
-        .customSynopsis("\nUSAGE\n", chunks: ["[-ht]", "[state-subcommand]", "<other-subcommand>"]),
+        .customSynopsis("\nUSAGE\n", chunks: ["[-ht]", "[state <state-options>]", "<other-subcommand>"]),
         .text("\nMETA-OPTIONS"),
         .parameter("generateFishCompletionScript","Print a fish completion script"),
         .parameter("generateZshCompletionScript","Print a zsh completion script"),
@@ -65,7 +65,7 @@ struct Assistant {
 
     static let command = StatefulCommand<PhraseFormatter>(
         name: "state",
-        synopsis: "Provide state for sibling commands.",
+        synopsis: "Provide state for subsequent commands.",
         action: action,
         config: actionConfig(),
         children: [Quotes.command, Food.command, Files.command],
@@ -77,6 +77,7 @@ struct Assistant {
         u__upper upper: Flag,
         l__lower lower: Flag,
         f__format format: PhraseFormat?,
+        t tree: MetaFlag = MetaFlag(treeFor: "cf-ca3-assisted state", synopsis: "Cmd_3 - Stateful commands with assistant."),
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
         commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) -> [PhraseFormatter]
@@ -86,17 +87,18 @@ struct Assistant {
     }
 
     static let helpElements: [ShowElement] = [
-        .text("DESCRIPTION\n", "Provide state for sibling commands."),
-        .synopsis("\nUSAGE\n"),
+        .text("DESCRIPTION\n", "Provide state for subcommands."),
+        .synopsis("\nUSAGE\n", trailer: "subcommand"),
         .text("\nOPTIONS"),
         .parameter("format","A text format (\(PhraseFormat.casesJoinedWith("or"))) to use when displaying quotes", .list(PhraseFormat.cases)),
         .parameter("upper", "Show the uppercase version of the quotes"),
+        .parameter("tree", "Show a hierarchical list of commands"),
         .parameter("lower", "Show the lowercase version of the quotes"),
         .parameter("help", "Show this help screen"),
+        .text("\nSUBCOMMANDS"),
         .commandNode(Quotes.command.asNode),
         .commandNode(Food.command.asNode),
         .commandNode(Files.command.asNode),
-
     ]
 }
 

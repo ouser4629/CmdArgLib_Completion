@@ -1,6 +1,15 @@
 {
-  "originHash" : "27aa47dc5746b73dabc9c18aa1e630e010c26a0a27241b4ef68d509b2d52bf2d",
+  "originHash" : "6d3ac195150725a1df69d03f7036456aa0cd8c3ce2e1015b770d3f0c0b9f859f",
   "pins" : [
+    {
+      "identity" : "cmd-arg-lib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ouser4629/cmd-arg-lib.git",
+      "state" : {
+        "revision" : "b6371733d5e9c386270373fa9e12193951c16971",
+        "version" : "0.3.9"
+      }
+    },
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
