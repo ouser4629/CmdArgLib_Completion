@@ -10,6 +10,8 @@ repository has a dual purpose.
 The programs `cf-ca1-simple` and `cf-ca2-stateful` use the `CommandAction` macro.
 These, along with `cf-print`, generate fish and zsh completion scripts.
 
+---
+
 ## Installation
 
 Download and install cal-install.
@@ -41,6 +43,8 @@ cf-print
     installed "_cf-print" in /Users/po/.config/zsh/completions
 ```
 
+---
+
 ## Usage
 
 After installation, cd to a new terminal (not necessary with macOS) and run the programs. E.g.,
@@ -66,7 +70,7 @@ SUBCOMMANDS
   quotes    Print quotes by famous people.
   food      Print food items passed in from the command line.
   files     Print file names passed in from the command line.
-...
+```
 
 ```
 > cf-ca3-assisted -ht
