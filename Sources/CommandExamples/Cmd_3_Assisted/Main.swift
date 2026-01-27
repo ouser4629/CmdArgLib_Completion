@@ -68,6 +68,7 @@ struct Assistant {
         synopsis: "Provide state for sibling commands.",
         action: action,
         config: actionConfig(),
+        children: [Quotes.command, Food.command, Files.command],
         isAssistantCommand: true
     )
 
@@ -92,6 +93,10 @@ struct Assistant {
         .parameter("upper", "Show the uppercase version of the quotes"),
         .parameter("lower", "Show the lowercase version of the quotes"),
         .parameter("help", "Show this help screen"),
+        .commandNode(Quotes.command.asNode),
+        .commandNode(Food.command.asNode),
+        .commandNode(Files.command.asNode),
+
     ]
 }
 
