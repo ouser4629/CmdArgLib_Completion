@@ -49,7 +49,7 @@ cf-print
 
 After installation, cd to a new terminal (not necessary with macOS) and run the programs. E.g.,
 
-### Without adding state
+### Top Level
 
 ```
 > cf-ca3-assisted -h
@@ -82,13 +82,8 @@ cf-ca3-assisted [state]
 └── files - Print file names passed in from the command line.
 ```
 
-```
-> cf-ca3-assisted quotes general 1
-Quote
-  Well done is better than well said. - Benjamin Franklin
-```
 
-### Adding state using the assistant command
+### State level
 
 ```
 > cf-ca3-assisted -h
@@ -121,6 +116,13 @@ cf-ca3-assisted state
 └── files - Print file names passed in from the command line.
 ```
 
+### Running the program
+
+```
+> cf-ca3-assisted quotes general 1
+Quote
+  Well done is better than well said. - Benjamin Franklin
+```
 
 ```
 > cf-ca3-assisted state -u quotes general 1
