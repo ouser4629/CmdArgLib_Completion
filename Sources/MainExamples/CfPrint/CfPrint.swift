@@ -44,7 +44,7 @@ struct Main {
     {
         print("count: ", count)
         print("names: ", names)
-        print("vanmes: ", vnames)
+        print("vnames: ", vnames)
         print("file: ", file)
         print("directory", directory)
         print("path", path)
