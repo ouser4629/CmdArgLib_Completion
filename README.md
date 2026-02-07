@@ -14,7 +14,7 @@ These, along with `cf-print`, generate fish and zsh completion scripts.
 
 ## Installation
 
-Download and install [cal-install](https://github.com/ouser4629/CAL_Install.git).
+Download and install [cal-arg-lib-package-manager](https://github.com/ouser4629/cal-arg-lib-package-manager.git).
 
 Go to some folder, say Tme, and install the programs
 
@@ -23,7 +23,7 @@ Go to some folder, say Tme, and install the programs
 > git clone https://github.com/ouser4629/CmdArgLib_Completion.git
 > cd CmdArgLib_Completion
 CmdArgLib_Completion> swift build -c release
-CmdArgLib_Completion> cal-install -s fish -s zsh
+ CmdArgLib_Completion> calpm install -s fish -s zsh
 /Users/po/.local/bin/__cal_fish_completion_tool
 cf-ca1-simple
     installed "cf-ca1-simple" in /Users/po/.local/bin
@@ -42,7 +42,6 @@ cf-print
     installed "cf-print.fish" in /Users/po/.config/fish/completions
     installed "_cf-print" in /Users/po/.config/zsh/completions
 ```
-
 ---
 
 ## Usage
