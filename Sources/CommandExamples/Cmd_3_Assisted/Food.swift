@@ -41,7 +41,6 @@ struct Food {
         _ people: Variadic<People> = [],
         upper: Flag = false,
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
     ) throws
     {

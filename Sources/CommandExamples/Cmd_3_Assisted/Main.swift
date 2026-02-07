@@ -34,7 +34,6 @@ struct Main {
         generateZshCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .zsh, name: "cf-ca3-assisted", showElements: helpElements),
         t tree: MetaFlag = MetaFlag(treeFor: "cf-ca3-assisted", synopsis: "Cmd_3 - Stateful commands with assistant."),
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) -> [PhraseFormatter]
     {
         return state
@@ -79,7 +78,6 @@ struct Assistant {
         f__format format: PhraseFormat?,
         t tree: MetaFlag = MetaFlag(treeFor: "cf-ca3-assisted state", synopsis: "Cmd_3 - Stateful commands with assistant."),
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) -> [PhraseFormatter]
     {
         let formatter = PhraseFormatter(upper: upper, lower: lower, phraseFormat: format)

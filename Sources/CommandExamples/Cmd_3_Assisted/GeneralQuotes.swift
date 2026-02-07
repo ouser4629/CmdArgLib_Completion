@@ -31,7 +31,6 @@ struct GeneralQuotes {
         u upper: Flag,
         _ count: Count,
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
     ) {
         var newFormatter = state.first ?? PhraseFormatter()

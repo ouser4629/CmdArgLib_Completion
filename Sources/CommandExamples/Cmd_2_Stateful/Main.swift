@@ -37,7 +37,6 @@ struct Main {
         l__lower lower: Flag,
         f__format format: PhraseFormat?,
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) -> [PhraseFormatter]
     {
         let formatter = PhraseFormatter(upper: upper, lower: lower, phraseFormat: format)

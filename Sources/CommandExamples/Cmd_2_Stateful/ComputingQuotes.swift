@@ -29,7 +29,6 @@ struct ComputingQuotes {
         l lower: Flag,
         u upper: Flag,
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) -> [PhraseFormatter]
     {
         var newFormatter = state.first ?? PhraseFormatter()

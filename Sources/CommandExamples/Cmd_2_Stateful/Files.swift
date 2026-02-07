@@ -33,7 +33,6 @@ struct Files {
         file: TextFile = "default_file",
         _ paths: Variadic<Path>,
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) throws
     {
         print("directory", directory)

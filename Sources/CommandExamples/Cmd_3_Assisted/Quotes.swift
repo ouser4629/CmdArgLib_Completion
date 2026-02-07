@@ -31,7 +31,6 @@ struct Quotes {
     @CommandAction
     private static func work(
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]) -> [PhraseFormatter] {
             return state
         }
