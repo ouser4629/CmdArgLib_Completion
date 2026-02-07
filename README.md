@@ -1,7 +1,7 @@
 ## CmdArgLib_Completion
 
 This repositiory provides three executable programs built
-using [Command Argument Library](https://github.com/ouser4629/cmd-arg-lib.git). The
+using [cmd-arg-lib](https://github.com/ouser4629/cmd-arg-lib.git). The
 repository has a dual purpose.
 
 * Provide examples of how to use the `CommandAction` macro.
@@ -14,7 +14,7 @@ These, along with `cf-print`, generate fish and zsh completion scripts.
 
 ## Installation
 
-Download and install [cal-arg-lib-package-manager](https://github.com/ouser4629/cal-arg-lib-package-manager.git).
+Download and install [cal-arg-lib-package-manager](https://github.com/ouser4629/cmd-arg-lib-package-manager.git).
 
 Go to some folder, say Tme, and install the programs
 
