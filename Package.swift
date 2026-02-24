@@ -18,64 +18,30 @@
 import PackageDescription
 
 // --- Remoteand local use of cmd-arg-lib
-//let cmdArgLib = "cmd-arg-lib"
+let cmdArgLib = "cmd-arg-lib"
 
 /// --- Local - source
-let cmdArgLib = "Cmd_Arg_Lib"
+//let cmdArgLib = "Cmd_Arg_Lib"
 
 let package = Package(
     name: "CompletionExample",
     platforms: [.macOS(.v26)],
     products: [
-        .executable(name: "cf-ca1-simple", targets: ["Cmd_1_Simple"]),
-        .executable(name: "cf-ca2-stateful", targets: ["Cmd_2_Stateful"]),
-        .executable(name: "cf-ca3-assisted", targets: ["Cmd_3_Assisted"]),
-        .executable(name: "cf-print", targets: ["CfPrint"]),
+        .executable(name: "cf-print", targets: ["CfPrint"])
     ],
     dependencies: [
         // Remote
-        // .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.4.5")
+         .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.4.6")
         // Local
-         .package(path: "../../\(cmdArgLib)"),
+        // .package(path: "../../\(cmdArgLib)")
     ],
     targets: [
-        .target(
-            name: "LocalHelpers",
-            dependencies: [
-                .product(name: "CmdArgLib", package: cmdArgLib),
-                .product(name: "CmdArgLibMacros", package: cmdArgLib),
-            ],
-            path: "Sources/CommandExamples/LocalHelpers"),
-        .executableTarget(
-            name: "Cmd_1_Simple",
-            dependencies: [
-                "LocalHelpers",
-                .product(name: "CmdArgLib", package: cmdArgLib),
-                .product(name: "CmdArgLibMacros", package: cmdArgLib),
-            ],
-            path: "Sources/CommandExamples/Cmd_1_Simple"),
-        .executableTarget(
-            name: "Cmd_2_Stateful",
-            dependencies: [
-                "LocalHelpers",
-                .product(name: "CmdArgLib", package: cmdArgLib),
-                .product(name: "CmdArgLibMacros", package: cmdArgLib),
-            ],
-            path: "Sources/CommandExamples/Cmd_2_Stateful"),
-        .executableTarget(
-            name: "Cmd_3_Assisted",
-            dependencies: [
-                "LocalHelpers",
-                .product(name: "CmdArgLib", package: cmdArgLib),
-                .product(name: "CmdArgLibMacros", package: cmdArgLib),
-            ],
-            path: "Sources/CommandExamples/Cmd_3_Assisted"),
         .executableTarget(
             name: "CfPrint",
             dependencies: [
                 .product(name: "CmdArgLib", package: cmdArgLib),
                 .product(name: "CmdArgLibMacros", package: cmdArgLib),
             ],
-            path: "Sources/MainExamples/CfPrint"),
+            path: "Sources/CfPrint")
     ]
 )

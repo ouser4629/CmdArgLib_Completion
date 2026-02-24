@@ -30,12 +30,12 @@ struct Main {
 
     @MainFunction(shadowGroups: [])
     private static func cfPrint(
-        _ fruit: Fruit = .apple,
         c__count count: Count = 1,
         n__name names: [Name] = [],
         v__vnames vnames: Variadic<Vname> = [],
         f__file file: TextFile?,
         d__directory directory: Directory?,
+        _ fruit: Fruit = .apple,
         p__path path: Path?,
         u__upper upper: Flag = false,
         generateFishCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .fish, showElements: helpElements),
