@@ -21,7 +21,7 @@ import LocalHelpers
 enum Cheese: String, BasicParameterEnum {case comté, gouda, roncal}
 enum Bread: String, BasicParameterEnum {case baguette, multigrain, sourdough }
 enum Wine: String, BasicParameterEnum {case bordeaux , rioja, sancerre }
-enum People: String, BasicParameterEnum {case manny , moe, jack }
+enum Person: String, BasicParameterEnum {case manny , moe, jack }
 
 typealias Table = Int
 typealias Text = String
@@ -38,7 +38,7 @@ struct Food {
         wines: Variadic<Wine> = [],
         cheese: [Cheese] = [],
         bread: Bread = .baguette,
-        _ people: Variadic<People> = [],
+        _ people: Variadic<Person> = [],
         upper: Flag = false,
         h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
         state: [PhraseFormatter]
@@ -53,15 +53,15 @@ struct Food {
     }
 
     private static let helpElements: [ShowElement] = [
-        .text("DESCRIPTION\n", "Print food items passed in from the command line."),
-        .customSynopsis("\nUSAGE\n", chunkLists: [["[<options>]", "<people>"]]),
+        .text("DESCRIPTION\n", "Print values passed in from the command line."),
+        .customSynopsis("\nUSAGE\n", chunkLists: [["[<options>]", "<fruit>"]]),
         .text("\nARGUMENTS"),
-        .parameter("people","Some people (\(People.casesJoinedWith("and")))", .list(People.cases)),
+        .parameter("people", Person.orCases("One or more of"), .list(Person.casesArray)),
         .text("\nOPTIONS"),
         .parameter("table", "The table number"),
-        .parameter("wines", "Wines (\(Wine.casesJoinedWith("and")))", .list(Wine.cases)),
-        .parameter("cheese", "Cheese. \(Cheese.oneOfCapitalized) (can be repeated)", .list(Cheese.cases)),
-        .parameter("bread", "The bread. \(Bread.oneOfCapitalized) ", .list(Bread.cases)),
+        .parameter("wines", Wine.orCases("One or more of"), .list(Wine.casesArray)),
+        .parameter("cheese", Cheese.orCases("One of", "(can be repeated)"), .list(Cheese.casesArray)),
+        .parameter("bread", Bread.orCases("One of"), .list(Bread.casesArray)),
         .parameter("help", "Show this help message"),
     ]
 }

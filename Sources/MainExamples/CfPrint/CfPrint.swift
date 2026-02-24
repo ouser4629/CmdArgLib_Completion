@@ -34,9 +34,9 @@ struct Main {
         c__count count: Count = 1,
         n__name names: [Name] = [],
         v__vnames vnames: Variadic<Vname> = [],
-        f__file file: TextFile = "default_file.txt",
-        d__directory directory: Directory = "default_directory/",
-        p__path path: Path = "default_path",
+        f__file file: TextFile?,
+        d__directory directory: Directory?,
+        p__path path: Path?,
         u__upper upper: Flag = false,
         generateFishCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .fish, showElements: helpElements),
         generateZshCompletionScript: MetaFlag = MetaFlag(completionScriptFor: .zsh, showElements: helpElements),
@@ -45,25 +45,25 @@ struct Main {
         print("count: ", count)
         print("names: ", names)
         print("vnames: ", vnames)
-        print("file: ", file)
-        print("directory", directory)
-        print("path", path)
+        print("file: ", file ?? "nil")
+        print("directory:", directory ?? "nil")
+        print("path:", path ?? "nil")
         print("fruit: ", fruit)
-        print("upper", upper)
+        print("upper:", upper)
     }
 
     private static let helpElements: [ShowElement] = [
         .text("DESCRIPTION\n", "Print values passed in from the command line."),
         .synopsis("\nUSAGE\n"),
         .text("\nARGUMENT"),
-        .parameter("fruit", "A fruit.", .list(Fruit.cases)),
+        .parameter("fruit", Fruit.orCases("One of"), .list(Fruit.casesArray)),
         .text("\nOPTIONS"),
-        .parameter("count", "A count"),
-        .parameter("names", "A name (can be repeated)", .list(Name.cases)),
-        .parameter("vnames", "Various names", .list(Vname.cases)),
-        .parameter("file", "The name of a text file", .file("*.txt")),
-        .parameter("directory", "The name of a directory", .directory("c*")),
-        .parameter("path", "The name of a path", .path),
+        .parameter("count", "An integer"),
+        .parameter("names", Name.orCases("One of", "(can be repeated)"), .list(Name.casesArray)),
+        .parameter("vnames", Vname.orCases("One or more of"), .list(Vname.casesArray)),
+        .parameter("file", "A file whose name matches '*.txt'", .file("*.txt")),
+        .parameter("directory", "A directory whose name matches 'C*'", .directory("C*")),
+        .parameter("path", "A path, starting from the current directory", .path),
         .parameter("upper", "Upper case flag"),
         .text("\nMETA-OPTIONS"),
         .parameter("help", "Show this help message"),

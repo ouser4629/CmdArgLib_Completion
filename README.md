@@ -12,44 +12,8 @@ These, along with `cf-print`, generate fish and zsh completion scripts.
 
 ---
 
-## Installation
+## 
 
-Download and install [cal-arg-lib-package-manager](https://github.com/ouser4629/cmd-arg-lib-package-manager.git).
-
-Make and go to some folder, say Temp, and install the programs
-
-```
-> cd Temp
-> git clone https://github.com/ouser4629/CmdArgLib_Completion.git
-> cd CmdArgLib_Completion
-CmdArgLib_Completion> swift build -c release
-CmdArgLib_Completion> calpm install -s fish -s zsh
-/Users/po/.local/bin/__cal_fish_completion_tool
-cf-ca1-simple
-    installed "cf-ca1-simple" in /Users/po/.local/bin
-    installed "cf-ca1-simple.fish" in /Users/po/.config/fish/completions
-    installed "_cf-ca1-simple" in /Users/po/.config/zsh/completions
-cf-ca2-stateful
-    installed "cf-ca2-stateful" in /Users/po/.local/bin
-    installed "cf-ca2-stateful.fish" in /Users/po/.config/fish/completions
-    installed "_cf-ca2-stateful" in /Users/po/.config/zsh/completions
-cf-ca3-assisted
-    installed "cf-ca3-assisted" in /Users/po/.local/bin
-    installed "cf-ca3-assisted.fish" in /Users/po/.config/fish/completions
-    installed "_cf-ca3-assisted" in /Users/po/.config/zsh/completions
-cf-print
-    installed "cf-print" in /Users/po/.local/bin
-    installed "cf-print.fish" in /Users/po/.config/fish/completions
-    installed "_cf-print" in /Users/po/.config/zsh/completions
-cd ../..
-rm -rf Temp
-```
-
----
-
-## Usage
-
-After installation, cd to a new terminal (not necessary with macOS) and run the programs. E.g.,
 
 ### Top Level
 
@@ -132,3 +96,39 @@ Quote
 Quote
   WHERE ALL THINK ALIKE, NO ONE THINKS VERY MUCH. - WALTER LIPPMANN
 ```
+
+
+## Installation
+
+Download and install [cal-arg-lib-package-manager](https://github.com/ouser4629/cmd-arg-lib-package-manager.git).
+
+Make a directory, say Temp, cd to it, and install the programs
+
+```
+> mkdir Temp && cd Temp
+> git clone https://github.com/ouser4629/CmdArgLib_Completion.git
+> cd CmdArgLib_Completion
+CmdArgLib_Completion> swift build -c release
+CmdArgLib_Completion> calpm install -s fish -s zsh
+cf-ca1-simple
+    installed "cf-ca1-simple" in /Users/po/.local/bin
+    installed "cf-ca1-simple.fish" in /Users/po/.config/fish/completions
+    installed "_cf-ca1-simple" in /Users/po/.config/zsh/completions
+cf-ca2-stateful
+    installed "cf-ca2-stateful" in /Users/po/.local/bin
+    installed "cf-ca2-stateful.fish" in /Users/po/.config/fish/completions
+    installed "_cf-ca2-stateful" in /Users/po/.config/zsh/completions
+cf-ca3-assisted
+    installed "cf-ca3-assisted" in /Users/po/.local/bin
+    installed "cf-ca3-assisted.fish" in /Users/po/.config/fish/completions
+    installed "_cf-ca3-assisted" in /Users/po/.config/zsh/completions
+cf-print
+    installed "cf-print" in /Users/po/.local/bin
+    installed "cf-print.fish" in /Users/po/.config/fish/completions
+    installed "_cf-print" in /Users/po/.config/zsh/completions
+cd ../..
+rm -rf Temp
+```
+
+---
+

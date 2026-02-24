@@ -88,7 +88,7 @@ struct Assistant {
         .text("DESCRIPTION\n", "Provide state for subcommands."),
         .synopsis("\nUSAGE\n", trailer: "subcommand"),
         .text("\nOPTIONS"),
-        .parameter("format","A text format (\(PhraseFormat.casesJoinedWith("or"))) to use when displaying quotes", .list(PhraseFormat.cases)),
+        .parameter("format","A text format (\(PhraseFormat.orCases("one of")) to use when displaying quotes", .list(PhraseFormat.casesArray)),
         .parameter("upper", "Show the uppercase version of the quotes"),
         .parameter("tree", "Show a hierarchical list of commands"),
         .parameter("lower", "Show the lowercase version of the quotes"),

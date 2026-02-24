@@ -43,12 +43,11 @@ struct Main {
         return [formatter]
     }
 
-    
     static let helpElements: [ShowElement] = [
         .text("DESCRIPTION\n", "Demonstrate CLI command completion with a stateful hierarchical command."),
         .synopsis("\nUSAGE\n", trailer: "subcommand"),
         .text("\nOPTIONS"),
-        .parameter("format","A text format (\(PhraseFormat.casesJoinedWith("or"))) to use when displaying quotes", .list(PhraseFormat.cases)),
+        .parameter("format","A text format (\(PhraseFormat.orCases("one of")) to use when displaying quotes", .list(PhraseFormat.casesArray)),
         .parameter("upper", "Show the uppercase version of the quotes"),
         .parameter("lower", "Show the lowercase version of the quotes"),
         .text("\nMETA-OPTIONS"),
