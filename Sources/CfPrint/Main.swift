@@ -56,7 +56,7 @@ struct Main {
         .text("DESCRIPTION\n", "Print values passed in from the command line."),
         .synopsis("\nUSAGE\n"),
         .text("\nARGUMENT"),
-        .parameter("fruit", Fruit.orCases("One of"), .list(Fruit.casesArray)),
+        .parameter("fruit", Fruit.orCases("An"), .list(Fruit.casesArray)),
         .text("\nOPTIONS"),
         .parameter("count", "An integer"),
         .parameter("names", Name.orCases("One of", "(can be repeated)"), .list(Name.casesArray)),
