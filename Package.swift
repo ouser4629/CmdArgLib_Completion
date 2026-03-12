@@ -31,7 +31,7 @@ let package = Package(
     ],
     dependencies: [
         // Remote
-         .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.4.9")
+         .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.4.10")
         // Local
         // .package(path: "../../\(cmdArgLib)")
     ],
